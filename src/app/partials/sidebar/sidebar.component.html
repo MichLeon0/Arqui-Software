@@ -1,0 +1,20 @@
+<div class="sidebar" [class.open]="isOpen">
+
+  <div class="sidebar-header">
+    <div class="logo">Portfolio</div>
+    <button class="close-btn" (click)="close.emit()">✕</button>
+  </div>
+
+  <nav>
+    <a routerLink="/perfil" routerLinkActive="active">Perfil</a>
+    <a routerLink="/proyectos" routerLinkActive="active">Proyectos</a>
+    <a routerLink="/habilidades" routerLinkActive="active">Habilidades</a>
+    <a routerLink="/experiencia" routerLinkActive="active">Experiencia</a>
+    <a routerLink="/configuracion" routerLinkActive="active">Configuración</a>
+  </nav>
+
+  <div class="bottom">
+    <a routerLink="/login">Salir</a>
+  </div>
+
+</div>

@@ -1,0 +1,80 @@
+<div class="min-h-screen auth-container">
+
+  <!-- HERO IZQUIERDO -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Construye tu Portafolio Profesional</h1>
+      <p>
+        Gestiona tus proyectos web, habilidades y experiencia en un solo lugar.
+        Destaca tu talento como desarrolladora.
+      </p>
+    </div>
+  </div>
+
+  <!-- FORMULARIO DERECHO -->
+  <div class="form-section">
+    <div class="auth-card">
+
+      <header>
+        <h2>
+          {{ isLogin ? 'Bienvenido de vuelta' : 'Crear cuenta' }}
+        </h2>
+        <p>
+          {{ isLogin ? 'Ingresa tus credenciales para continuar' : 'Completa el formulario para comenzar' }}
+        </p>
+      </header>
+
+      <form (ngSubmit)="handleSubmit()" #authForm="ngForm" class="space-y-5">
+
+        <!-- EMAIL -->
+        <div class="space-y-1">
+          <label>Correo electrónico</label>
+          <div class="relative">
+            <input type="email"
+              name="email"
+              [(ngModel)]="email"
+              class="form-input"
+              placeholder="tu@email.com"
+              required>
+          </div>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="space-y-1">
+          <label>Contraseña</label>
+          <div class="relative">
+            <input type="password"
+              name="password"
+              [(ngModel)]="password"
+              class="form-input"
+              placeholder="••••••••"
+              required>
+          </div>
+        </div>
+
+        <div class="actions">
+          <label class="remember">
+            <input type="checkbox">
+            Recordarme
+          </label>
+
+          <a href="#" class="text-primary">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn-primary" (click)="irAproyectos()">
+          {{ isLogin ? 'Iniciar sesión' : 'Registrarse' }}
+        </button>
+
+      </form>
+
+      <p class="switch-text">
+        {{ isLogin ? '¿No tienes una cuenta?' : '¿Ya tienes cuenta?' }}
+        <button (click)="irARegistro()" class="text-primary">
+          {{ isLogin ? 'Crear cuenta' : 'Iniciar sesión' }}
+        </button>
+      </p>
+
+    </div>
+  </div>
+
+</div>

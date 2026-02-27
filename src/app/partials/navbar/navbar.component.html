@@ -1,0 +1,16 @@
+<div class="navbar">
+
+  <button class="hamburger" (click)="onToggle()">☰</button>
+
+  <div class="titles">
+    <h1>{{ title }}</h1>
+    <p *ngIf="subtitle">{{ subtitle }}</p>
+  </div>
+
+  <button
+    *ngIf="action"
+    class="action-btn">
+    + {{ action }}
+  </button>
+
+</div>

@@ -1,0 +1,160 @@
+.profile-section {
+  padding: 1.5rem;
+  background: #f4f6f9;
+}
+
+/* PROFILE CARD */
+.profile-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Avatar */
+.avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.edit-avatar {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Text */
+.profile-right h2 {
+  margin: 0;
+}
+
+.role {
+  color: #2563eb;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.profile-description {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.profile-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.link-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+/* ABOUT CARD */
+.about-card {
+  margin-top: 1.5rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.edit-btn {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* STATS */
+.stats-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  color: white;
+}
+
+.stat-card h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.blue {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.purple {
+  background: linear-gradient(135deg, #9333ea, #7e22ce);
+}
+
+.green {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+
+  .profile-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .profile-left {
+    margin-right: 2rem;
+  }
+
+  .profile-info {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}

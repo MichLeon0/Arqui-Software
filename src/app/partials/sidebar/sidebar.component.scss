@@ -1,0 +1,120 @@
+/* Contenedor Principal */
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  transition: transform 0.3s ease-in-out;
+
+  /* Posición fija para que flote sobre el contenido en móvil */
+  /* y se pueda esconder en PC */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* IMPORTANTE: Por defecto siempre escondido */
+  transform: translateX(-100%);
+}
+
+/* Header: Logo y Botón de Cerrar */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* El icono azul del logo */
+.logo-icon {
+  background: #2563eb;
+  color: white;
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espacio entre icono y texto */
+  padding: 0.9rem 1.2rem;
+  border-radius: 14px; /* Bordes más redondeados según la imagen */
+  color: #94a3b8; /* Gris azulado para items inactivos */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Item Activo */
+nav a.active {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Efecto Hover */
+nav a:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+/* Estilo para los iconos dentro de los links */
+nav a i, nav a svg {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.bottom {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    z-index: 10000; /* Prioridad máxima en móvil */
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Cuando el sidebar NO está abierto, lo mandamos a la izquierda */
+.sidebar:not(.open) {
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+    transform: translateX(0); // Lo desliza hacia adentro
+  }
+
+/* Ajuste para el botón de cerrar: solo se ve si el sidebar está abierto */
+.close-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+}

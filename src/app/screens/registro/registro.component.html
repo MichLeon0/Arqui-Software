@@ -1,0 +1,75 @@
+<div class="register-container">
+
+  <!-- LADO IZQUIERDO (IMAGEN / HERO) -->
+  <div class="register-hero">
+    <div class="hero-content">
+      <h1>Comienza a construir tu marca profesional</h1>
+      <p>
+        Crea tu cuenta y organiza tus proyectos, habilidades
+        y experiencia en un portafolio moderno.
+      </p>
+    </div>
+  </div>
+
+  <!-- LADO DERECHO (FORMULARIO) -->
+  <div class="register-form-section">
+    <div class="register-card">
+
+      <header>
+        <h2>Crear cuenta</h2>
+        <p>Completa el formulario para comenzar</p>
+      </header>
+
+      <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+
+        <!-- Nombre -->
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="name"
+            required
+            placeholder="Tu nombre">
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            placeholder="tu@email.com">
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            minlength="6"
+            placeholder="••••••••">
+        </div>
+
+        <button type="submit" class="btn-primary">
+          Crear cuenta
+        </button>
+
+      </form>
+
+      <p class="switch-text">
+        ¿Ya tienes cuenta?
+        <a routerLink="/login" class="text-primary">
+          Iniciar sesión
+        </a>
+      </p>
+
+    </div>
+  </div>
+
+</div>

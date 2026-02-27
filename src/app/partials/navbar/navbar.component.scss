@@ -1,0 +1,64 @@
+.navbar {
+  background: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  min-height: 64px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.hamburger {
+  /* CAMBIO: display: flex siempre para que se vea en PC */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #0f172a;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+  line-height: 1;
+
+  &:hover {
+    background: #f1f5f9;
+  }
+}
+
+.titles {
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+  }
+}
+
+.action-btn {
+  margin-left: auto;
+  background: #2563eb;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+/* Puedes borrar la media query anterior del .hamburger ya que ahora es display: flex global */

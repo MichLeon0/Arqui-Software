@@ -1,0 +1,32 @@
+// layout.component.scss
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: padding-left 0.3s ease-in-out; /* Transición suave */
+  width: 100%;
+}
+
+.content {
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto; // Permite scroll solo en el contenido
+}
+
+/* En PC, si el sidebar está abierto, empujamos el contenido a la derecha */
+@media (min-width: 1025px) {
+  .main.shifted {
+    padding-left: 280px;
+  }
+}
+/* En PC, el botón hamburguesa debe estar visible si queremos colapsar el menú */
+.navbar .hamburger {
+  display: block !important; /* Forzamos que se vea siempre */
+}

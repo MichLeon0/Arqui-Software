@@ -1,0 +1,76 @@
+<div class="profile-section">
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card">
+
+    <div class="profile-left">
+      <div class="avatar-container">
+        <img [src]="user.image" alt="Profile Image">
+        <button class="edit-avatar">✏️</button>
+      </div>
+    </div>
+
+    <div class="profile-right">
+      <h2>{{ user.name }}</h2>
+      <span class="role">{{ user.role }}</span>
+
+      <p class="profile-description">
+        {{ user.description }}
+      </p>
+
+      <div class="profile-info">
+        <span>📧 {{ user.email }}</span>
+        <span>📍 {{ user.location }}</span>
+        <span>📅 Miembro desde {{ user.memberSince }}</span>
+      </div>
+
+      <div class="profile-links">
+        <button class="link-btn">LinkedIn</button>
+        <button class="link-btn">GitHub</button>
+        <button class="link-btn">Website</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <div class="about-card">
+    <div class="about-header">
+      <h3>Sobre Mí</h3>
+      <button class="edit-btn">✏️ Editar</button>
+    </div>
+
+    <p>
+      Soy un desarrollador full stack con una fuerte pasión por crear aplicaciones web modernas y escalables.
+      Mi experiencia abarca desde el diseño de interfaces de usuario hasta la arquitectura de backend complejos.
+    </p>
+
+    <p>
+      A lo largo de mi carrera, he trabajado con startups y empresas consolidadas, ayudando a transformar ideas en productos digitales exitosos.
+      Me especializo en React, Node.js, TypeScript y arquitecturas basadas en microservicios.
+    </p>
+
+    <p>
+      Cuando no estoy programando, disfruto contribuyendo a proyectos open source, escribiendo artículos técnicos y mentoreando a desarrolladores junior.
+    </p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card blue">
+      <h2>24</h2>
+      <p>Proyectos Completados</p>
+    </div>
+
+    <div class="stat-card purple">
+      <h2>15+</h2>
+      <p>Tecnologías Dominadas</p>
+    </div>
+
+    <div class="stat-card green">
+      <h2>5</h2>
+      <p>Años de Experiencia</p>
+    </div>
+  </div>
+
+</div>
