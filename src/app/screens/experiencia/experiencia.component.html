@@ -1,1 +1,41 @@
-<p>experiencia works!</p>
+<div class="container">
+
+  <h2>Experiencia Laboral</h2>
+
+  <form (submit)="$event.preventDefault()">
+    <input type="text" placeholder="Empresa"
+           [(ngModel)]="nuevaExperiencia.empresa" name="empresa">
+
+    <input type="text" placeholder="Cargo"
+           [(ngModel)]="nuevaExperiencia.cargo" name="cargo">
+
+    <input type="date"
+           [(ngModel)]="nuevaExperiencia.fechaInicio" name="fechaInicio">
+
+    <input type="date"
+           [(ngModel)]="nuevaExperiencia.fechaFin" name="fechaFin">
+
+    <textarea placeholder="Descripción"
+              [(ngModel)]="nuevaExperiencia.descripcion"
+              name="descripcion"></textarea>
+
+    <<div class="form-actions">
+      <button *ngIf="!editando" (click)="agregar()">Agregar</button>
+      <button *ngIf="editando" (click)="actualizar()">Actualizar</button>
+      <button *ngIf="editando" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+
+  <hr>
+
+  <div *ngFor="let exp of experiencias" class="card">
+    <h3>{{ exp.empresa }}</h3>
+    <p><strong>Cargo:</strong> {{ exp.cargo }}</p>
+    <p><strong>Periodo:</strong> {{ exp.fechaInicio }} - {{ exp.fechaFin }}</p>
+    <p>{{ exp.descripcion }}</p>
+
+    <button (click)="editar(exp)">Editar</button>
+    <button (click)="eliminar(exp.id)">Eliminar</button>
+  </div>
+
+</div>

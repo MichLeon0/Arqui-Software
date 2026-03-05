@@ -1,1 +1,90 @@
-<p>agregar-proyevto works!</p>
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-container">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+      <h2>Nuevo Proyecto</h2>
+      <button class="close-btn" (click)="close()">✕</button>
+    </div>
+
+    <!-- BODY -->
+    <div class="modal-body">
+
+      <form (ngSubmit)="submit()" #projectForm="ngForm">
+
+        <!-- TITULO -->
+        <div class="form-group">
+          <label>Título del proyecto *</label>
+          <input
+            type="text"
+            name="title"
+            [(ngModel)]="project.title"
+            required
+            placeholder="Ej: E-Commerce Platform">
+        </div>
+
+        <!-- DESCRIPCIÓN -->
+        <div class="form-group">
+          <label>Descripción *</label>
+          <textarea
+            name="description"
+            [(ngModel)]="project.description"
+            required
+            rows="4"
+            placeholder="Describe tu proyecto...">
+          </textarea>
+        </div>
+
+        <!-- URL IMAGEN -->
+        <div class="form-group">
+          <label>URL de la imagen</label>
+          <input
+            type="text"
+            name="image"
+            [(ngModel)]="project.image"
+            placeholder="https://example.com/image.jpg">
+          <small>Si lo dejas vacío se usará una imagen por defecto</small>
+        </div>
+
+        <!-- GITHUB -->
+        <div class="form-group">
+          <label>Link de GitHub</label>
+          <input
+            type="text"
+            name="github"
+            [(ngModel)]="project.githubLink">
+        </div>
+
+        <!-- TECNOLOGÍAS -->
+        <div class="form-group tech-group">
+          <label>Tecnologías</label>
+
+          <div class="tech-input">
+            <input
+              type="text"
+              [(ngModel)]="newTech"
+              name="techInput"
+              placeholder="Ej: Angular">
+            <button type="button" (click)="addTech()">Agregar</button>
+          </div>
+
+          <div class="tech-list">
+            <span *ngFor="let tech of project.technologies">
+              {{ tech }}
+              <button type="button" (click)="removeTech(tech)">x</button>
+            </span>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" (click)="close()">Descartar</button>
+          <button type="button" (click)="submit()">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>

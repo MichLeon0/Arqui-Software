@@ -1,0 +1,65 @@
+<div class="modal-overlay" *ngIf="isOpen">
+  <div class="modal-container">
+
+    <!-- Header -->
+    <div class="modal-header">
+      <h2>Editar Perfil</h2>
+      <button class="close-btn" (click)="close()">✖</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label>Nombre *</label>
+        <input type="text" [(ngModel)]="userForm.name" placeholder="Ej. John Doe">
+      </div>
+
+      <div class="form-group">
+        <label>Rol *</label>
+        <input type="text" [(ngModel)]="userForm.role" placeholder="Ej. Full Stack Developer">
+      </div>
+
+      <div class="form-group">
+        <label>Descripción *</label>
+        <textarea rows="5" [(ngModel)]="userForm.description"
+          placeholder="Descripción breve del perfil"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" [(ngModel)]="userForm.email" placeholder="john.doe@example.com">
+      </div>
+
+      <div class="form-group">
+        <label>Ubicación</label>
+        <input type="text" [(ngModel)]="userForm.location" placeholder="Ej. San Francisco, CA">
+      </div>
+
+      <div class="form-group">
+        <label>Miembro desde</label>
+        <input type="text" [(ngModel)]="userForm.memberSince" placeholder="Ej. Enero 2020">
+      </div>
+
+      <div class="form-group">
+        <label>URL de la imagen</label>
+        <input type="text" [(ngModel)]="userForm.image" placeholder="https://...">
+      </div>
+
+      <div class="preview" *ngIf="userForm.image?.trim()">
+        <p class="preview-title">Vista previa</p>
+        <img [src]="userForm.image" alt="Preview" />
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="discard()">Descartar</button>
+      <button class="btn-primary" [disabled]="saving" (click)="submit()">
+        Guardar Cambios
+      </button>
+    </div>
+
+  </div>
+</div>

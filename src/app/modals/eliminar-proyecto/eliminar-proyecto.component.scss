@@ -1,0 +1,115 @@
+// Variables de color para eliminación
+$danger-red: #ef4444;
+$danger-bg: #fee2e2;
+$text-main: #1e293b;
+$text-muted: #64748b;
+
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.6); // Un fondo un poco más oscuro para resaltar el blanco
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px); // Efecto de desenfoque moderno al fondo
+}
+
+.delete-modal {
+  background: white;
+  width: 400px;
+  padding: 32px;
+  border-radius: 24px; // Bordes muy redondeados (Apple/Modern style)
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: modalAppear 0.3s ease-out;
+
+  .icon-warning-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .icon-circle {
+      width: 64px;
+      height: 64px;
+      background-color: $danger-bg;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .warning-symbol {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .modal-content {
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: $text-main;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 15px;
+      color: $text-muted;
+      line-height: 1.5;
+      margin-bottom: 32px;
+
+      strong {
+        color: $text-main;
+      }
+    }
+  }
+
+  .modal-actions {
+    display: flex;
+    flex-direction: column; // Botones uno sobre otro o en fila, aquí los pondremos en fila
+    gap: 12px;
+
+    button {
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-confirm {
+      background: $danger-red;
+      color: white;
+      &:hover {
+        background: #dc2626;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+      }
+    }
+
+    .btn-cancel {
+      background: #f1f5f9;
+      color: $text-muted;
+      &:hover {
+        background: #e2e8f0;
+        color: $text-main;
+      }
+    }
+  }
+}
+
+// Animación de entrada
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

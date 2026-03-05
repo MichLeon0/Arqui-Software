@@ -1,1 +1,165 @@
-<p>configuracion works!</p>
+<div class="config-container">
+  <h1>Configuración</h1>
+  <p class="subtitle">
+    Personaliza tu experiencia y administra tu cuenta
+  </p>
+
+  <div class="card">
+    <h2>
+      <span class="icon">👤</span>
+      Información de la Cuenta
+    </h2>
+
+    <form [formGroup]="accountForm" (ngSubmit)="guardarCambios()">
+
+      <div class="row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" formControlName="nombre" />
+        </div>
+
+        <div class="form-group">
+          <label>Apellido</label>
+          <input type="text" formControlName="apellido" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input type="email" formControlName="email" />
+      </div>
+
+      <div class="form-group">
+        <label>Título Profesional</label>
+        <input type="text" formControlName="titulo" />
+      </div>
+
+      <button type="submit" class="btn-primary">
+        Guardar Cambios
+      </button>
+
+    </form>
+  </div>
+
+
+  <div class="card">
+    <h2>
+      <span class="icon"> 🎨 </span>
+      Apariencia
+    </h2>
+
+    <!-- MODO OSCURO -->
+    <div class="appearance-row">
+      <div class="text">
+        <h3>Modo Oscuro</h3>
+        <p>Activa el tema oscuro para reducir la fatiga visual</p>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" (change)="toggleTema($event)">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+     <!-- IDIOMA -->
+    <div class="form-group">
+      <label>Idioma</label>
+      <select>
+        <option>Español</option>
+        <option>Inglés</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>
+      <span class="icon"> 🔔 </span>
+      Notificaciones
+    </h2>
+
+    <!-- MODO OSCURO -->
+    <div class="appearance-row">
+      <div class="text">
+        <h3>✉️ Notificaciones por Email</h3>
+        <p>Recibe actualizaciones importantes por correo</p>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" (change)="toggleTema($event)">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="appearance-row">
+      <div class="text">
+        <h3>📱 Notificaciones Push</h3>
+        <p>Alertas instantáneas en tu dispositivo</p>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" (change)="toggleTema($event)">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="appearance-row">
+      <div class="text">
+        <h3>Actualizaciones de Proyectos</h3>
+        <p>Notificaciones sobre cambios en tus proyectos</p>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" (change)="toggleTema($event)">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="appearance-row">
+      <div class="text">
+        <h3>Resumen semanal</h3>
+        <p>Recibe un resumen semanal de tu actividad</p>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" (change)="toggleTema($event)">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>
+      <span class="icon"> 🛡️ </span>
+      Privacidad y seguridad
+    </h2>
+
+     <div class="options">
+
+    <button class="option-btn">
+      🔒 Cambiar Contraseña
+    </button>
+
+    <button class="option-btn">
+      🌐 Configuración de Privacidad
+    </button>
+
+    <button class="option-btn">
+      ⬇️ Descargar Mis Datos
+    </button>
+
+  </div>
+  </div>
+
+  <div class="card">
+
+     <div class="options">
+    <button class="option-btn">
+      🚪 Cerrar Sesión
+    </button>
+
+    <button class="option-btn">
+      🗑️ Eliminar Cuenta
+    </button>
+
+  </div>
+
+</div>

@@ -7,9 +7,9 @@
     <p *ngIf="subtitle">{{ subtitle }}</p>
   </div>
 
-  <button
+  <button (click)="abrirAgregarProyecto()"
     *ngIf="action"
-    class="action-btn">
+    class="action-btn" >
     + {{ action }}
   </button>
 

@@ -1,0 +1,28 @@
+<div class="modal-overlay" *ngIf="isOpen">
+  <div class="modal-container">
+
+    <div class="modal-header">
+      <h2>Editar Sobre Mí</h2>
+      <button class="close-btn" (click)="close()">✖</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Sobre Mí *</label>
+        <textarea rows="10"
+          [(ngModel)]="aboutMe"
+          placeholder="Escriba aquí su descripción 'Sobre mí'..."></textarea>
+      </div>
+
+      <div class="hint">
+        Puede utilizar saltos de línea. Si desea varios párrafos, sepárelos con una línea en blanco.
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="discard()">Descartar</button>
+      <button class="btn-primary" [disabled]="saving" (click)="submit()">Guardar Cambios</button>
+    </div>
+
+  </div>
+</div>

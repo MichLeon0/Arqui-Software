@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router'; // Importación necesaria para navegar
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,9 @@ export class LoginComponent implements OnInit {
   // Estado para alternar entre Login y Registro
   isLogin = true;
 
-  // Modelos para el formulario
-  email = '';
-  password = '';
-  name = '';
 
   // Inyectamos el Router aquí para poder usarlo en handleSubmit
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -35,7 +32,6 @@ export class LoginComponent implements OnInit {
     console.log('Datos enviados:', {
       email: this.email,
       password: this.password,
-      name: this.isLogin ? 'N/A' : this.name
     });
 
     // Ahora ya puedes navegar sin errores
@@ -49,4 +45,20 @@ export class LoginComponent implements OnInit {
   irAproyectos() {
   this.router.navigate(['/proyectos']);
   }
+
+  email: string = '';
+password: string = '';
+
+async onLogin() {
+  try {
+    await this.authService.login(this.email, this.password);
+    alert("Bienvenido 🎉");
+
+    this.router.navigate(['/proyectos']); // SOLO después de éxito
+  } catch (error: any) {
+    alert("Correo o contraseña incorrectos");
+  }
+}
+
+
 }

@@ -1,1 +1,210 @@
-<p>habilidades works!</p>
+<div class="container">
+
+  <h2 class="titulo">Mis Habilidades Técnicas</h2>
+  <p class="subtitulo">
+    Tecnologías y herramientas que domino para crear soluciones excepcionales
+  </p>
+
+  <!-- Frontend -->
+  <div class="card">
+
+    <div class="card-header">
+      <div class="icon frontend-icon">💻</div>
+      <div>
+        <h3>Frontend</h3>
+        <small>6 habilidades</small>
+      </div>
+    </div>
+
+    <div class="skills">
+      <div class="skill" *ngFor="let skill of habilidadesFrontend">
+
+        <div class="skill-info">
+          <span>{{ skill.nombre }}</span>
+          <span>{{ skill.nivel }}%</span>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress frontend-progress"
+            [style.width.%]="skill.nivel">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Backend -->
+  <div class="card">
+
+    <div class="card-header">
+      <div class="icon backend-icon">⚙️</div>
+      <div>
+        <h3>Backend</h3>
+        <small>6 habilidades</small>
+      </div>
+    </div>
+
+    <div class="skills">
+      <div class="skill" *ngFor="let skill of habilidadesBackend">
+
+        <div class="skill-info">
+          <span>{{ skill.nombre }}</span>
+          <span>{{ skill.nivel }}%</span>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress backend-progress"
+            [style.width.%]="skill.nivel">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Database -->
+  <div class="card">
+
+    <div class="card-header">
+      <div class="icon database-icon">⚙️</div>
+      <div>
+        <h3>Database</h3>
+        <small>4 habilidades</small>
+      </div>
+    </div>
+
+    <div class="skills">
+      <div class="skill" *ngFor="let skill of habilidadesDataBase">
+
+        <div class="skill-info">
+          <span>{{ skill.nombre }}</span>
+          <span>{{ skill.nivel }}%</span>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress database-progress"
+            [style.width.%]="skill.nivel">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-header">
+      <div class="icon DevOps-icon">♾️</div>
+      <div>
+        <h3>DevOps</h3>
+        <small>5 habilidades</small>
+      </div>
+    </div>
+
+    <div class="skills">
+      <div class="skill" *ngFor="let skill of habilidadesDevOps">
+
+        <div class="skill-info">
+          <span>{{ skill.nombre }}</span>
+          <span>{{ skill.nivel }}%</span>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress devOps-progress"
+            [style.width.%]="skill.nivel">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+   <div class="card">
+
+    <div class="card-header">
+      <div class="icon Design-icon">🎨</div>
+      <div>
+        <h3>Design</h3>
+        <small>3 habilidades</small>
+      </div>
+    </div>
+
+    <div class="skills">
+      <div class="skill" *ngFor="let skill of habilidadesDesign">
+
+        <div class="skill-info">
+          <span>{{ skill.nombre }}</span>
+          <span>{{ skill.nivel }}%</span>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress design-progress"
+            [style.width.%]="skill.nivel">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CERTIFICACIONES -->
+<div class="cert-section">
+
+  <h3 class="section-title">Certificaciones</h3>
+
+  <div class="cert-grid">
+
+    <div
+      class="cert-card"
+      *ngFor="let cert of certificaciones"
+      [style.borderColor]="cert.color"
+      [style.background]="cert.color + '15'">
+
+      <div
+        class="cert-icon"
+        [style.background]="cert.color">
+        🎓
+      </div>
+
+      <h4>{{ cert.titulo }}</h4>
+      <p>{{ cert.empresa }}</p>
+
+      <span
+        class="cert-year"
+        [style.color]="cert.color">
+        {{ cert.anio }}
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ACTUALMENTE APRENDIENDO -->
+<div class="learning-section">
+
+  <h3>Actualmente Aprendiendo</h3>
+
+  <div class="tags">
+    <span
+      class="tag"
+      *ngFor="let tech of aprendiendo">
+      {{ tech }}
+    </span>
+  </div>
+
+</div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,7 +14,7 @@ export class RegistroComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   onSubmit() {
     if (!this.name || !this.email || !this.password) {
@@ -30,5 +31,22 @@ export class RegistroComponent {
 
     this.router.navigate(['/login']);
   }
+
+
+  async onRegister() {
+  try {
+    await this.authService.register(
+      this.name,
+      this.email,
+      this.password
+    );
+
+    alert("Cuenta creada 🎉");
+
+    this.router.navigate(['/proyectos']);
+  } catch (error: any) {
+    alert(error.message);
+  }
+}
 
 }

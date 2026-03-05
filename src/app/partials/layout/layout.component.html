@@ -7,5 +7,9 @@
     <div class="content">
       <router-outlet></router-outlet>
     </div>
+    <app-agregar-proyevto
+      #agregarModal
+      (onSave)="agregarProyecto($event)">
+    </app-agregar-proyevto>
   </div>
 </div>

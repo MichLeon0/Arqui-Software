@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,12 +25,23 @@ import { HabilidadesComponent } from './screens/habilidades/habilidades.componen
 import { ExperienciaComponent } from './screens/experiencia/experiencia.component';
 import { ConfiguracionComponent } from './screens/configuracion/configuracion.component';
 import { LayoutComponent } from './partials/layout/layout.component';
+import { EliminarProyectoComponent } from './modals/eliminar-proyecto/eliminar-proyecto.component';
+import { EditarPerfilComponent } from './modals/editar-perfil/editar-perfil.component';
+import { EditarSobremiComponent } from './modals/editar-sobremi/editar-sobremi.component';
+
+/* 🔥 ESTA PARTE VA AQUÍ, FUERA DEL @NgModule */
+const firebaseConfig = {
+  apiKey: "AIzaSyCj0AZaXTWc5AXBmafck1TWIEfxfvdVIgs",
+  authDomain: "portafolio-profesional-2c6b0.firebaseapp.com",
+  projectId: "portafolio-profesional-2c6b0",
+  storageBucket: "portafolio-profesional-2c6b0.firebasestorage.app",
+  messagingSenderId: "569614275432",
+  appId: "1:569614275432:web:4b84d1eae0857abae63cdd"
+};
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditarProyectoComponent,
-    AgregarProyevtoComponent,
     EliminarExComponent,
     EditarExComponent,
     AgregarExComponent,
@@ -39,7 +53,9 @@ import { LayoutComponent } from './partials/layout/layout.component';
     HabilidadesComponent,
     ExperienciaComponent,
     ConfiguracionComponent,
-    LayoutComponent
+    LayoutComponent,
+    EditarPerfilComponent,
+    EditarSobremiComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +63,16 @@ import { LayoutComponent } from './partials/layout/layout.component';
     LoginComponent,
     FormsModule,
     ProyectosComponent,
+    EditarProyectoComponent,
+    AgregarProyevtoComponent,
+    ReactiveFormsModule,
+
+    // 🔥 FIREBASE
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

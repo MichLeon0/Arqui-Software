@@ -1,6 +1,7 @@
 import { Component,  Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,11 @@ export class NavbarComponent {
   subtitle?: string;
   action?: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor
+  (
+    private router: Router, private route: ActivatedRoute,
+    private modalService: ModalService
+  ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -31,6 +36,14 @@ export class NavbarComponent {
 
   onToggle() {
     this.toggleSidebar.emit();
+  }
+
+  onAction() {
+    this.router.navigate(['/agregar-proyecto']);
+  }
+
+  abrirAgregarProyecto() {
+    this.modalService.openAgregar();
   }
 
 }

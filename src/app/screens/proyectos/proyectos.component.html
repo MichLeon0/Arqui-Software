@@ -32,8 +32,9 @@
 
           <!-- TECHNOLOGIES -->
           <div class="technologies">
+
             <span class="badge"
-                  *ngFor="let tech of project.technologies | slice:0:3">
+                 *ngFor="let tech of (toArray(project.technologies))">
               {{ tech }}
             </span>
 
@@ -45,19 +46,22 @@
 
           <!-- ACTIONS -->
           <div class="actions">
-            <button class="btn edit" (click)="onEdit(project)">
-              ✏️ Editar
+            <button class="btn edit" (click)="abrirEditar(project)">
+              Editar
             </button>
 
-            <button class="btn delete" (click)="onDelete(project)">
-              🗑
+            <button class="btn delete" (click)="abrirEliminar(project)">
+              Eliminar
             </button>
           </div>
 
         </div>
       </div>
-
     </section>
+    <app-editar-proyecto #editarModal (onSave)="actualizarProyecto($event)">
+    </app-editar-proyecto>
 
+    <app-eliminar-proyecto #eliminarModal (onConfirm)="eliminarProyectoConfirmado($event)">
+    </app-eliminar-proyecto>
   </div>
 </div>

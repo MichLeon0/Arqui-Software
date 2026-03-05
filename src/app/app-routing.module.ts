@@ -8,6 +8,7 @@ import { PerfilComponent } from './screens/perfil/perfil.component';
 import { HabilidadesComponent } from './screens/habilidades/habilidades.component';
 import { ExperienciaComponent } from './screens/experiencia/experiencia.component';
 import { ConfiguracionComponent } from './screens/configuracion/configuracion.component';
+import { AgregarProyevtoComponent } from './modals/agregar-proyevto/agregar-proyevto.component';
 
 
 //Rutas publicas
@@ -50,8 +51,7 @@ const routes: Routes = [
     ]
   },
 
-   { path: '**', redirectTo: 'login' }
-
+   { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({

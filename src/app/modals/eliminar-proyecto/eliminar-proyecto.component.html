@@ -1,0 +1,21 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-container delete-modal">
+
+    <div class="icon-warning-container">
+      <div class="icon-circle">
+        <span class="warning-symbol">⚠️</span>
+      </div>
+    </div>
+
+    <div class="modal-content">
+      <h3>¿Eliminar proyecto?</h3>
+      <p>Estás a punto de eliminar <strong>"{{ project?.title }}"</strong>. Esta acción no se puede deshacer.</p>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="close()">Cancelar</button>
+      <button class="btn-confirm" (click)="confirmar()">Eliminar Proyecto</button>
+    </div>
+
+  </div>
+</div>

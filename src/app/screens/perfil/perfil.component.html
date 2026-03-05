@@ -6,7 +6,7 @@
     <div class="profile-left">
       <div class="avatar-container">
         <img [src]="user.image" alt="Profile Image">
-        <button class="edit-avatar">✏️</button>
+        <button class="edit-avatar" (click)="openEditarPerfil()">✏️</button>
       </div>
     </div>
 
@@ -37,7 +37,7 @@
   <div class="about-card">
     <div class="about-header">
       <h3>Sobre Mí</h3>
-      <button class="edit-btn">✏️ Editar</button>
+      <button class="edit-btn" (click)="openEditarSobreMi()">✏️ Editar</button>
     </div>
 
     <p>
@@ -72,5 +72,8 @@
       <p>Años de Experiencia</p>
     </div>
   </div>
+
+<app-editar-perfil (onSave)="guardarPerfil($event)" #editarPerfilModal></app-editar-perfil>
+<app-editar-sobremi (onSave)="guardarSobreMi($event)" #editarSobreMiModal></app-editar-sobremi>
 
 </div>
